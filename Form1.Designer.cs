@@ -44,6 +44,7 @@
             txtValorRecebido = new TextBox();
             txtTroco = new TextBox();
             pictureBox1 = new PictureBox();
+            btnBalcao = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -67,9 +68,9 @@
             // 
             // btnAdicionar
             // 
-            btnAdicionar.BackColor = SystemColors.Info;
-            btnAdicionar.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAdicionar.ForeColor = Color.Blue;
+            btnAdicionar.BackColor = SystemColors.InfoText;
+            btnAdicionar.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAdicionar.ForeColor = Color.FromArgb(225, 255, 0);
             btnAdicionar.Location = new Point(270, 97);
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(87, 30);
@@ -80,9 +81,9 @@
             // 
             // listRemover
             // 
-            listRemover.BackColor = SystemColors.Info;
-            listRemover.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            listRemover.ForeColor = Color.Red;
+            listRemover.BackColor = SystemColors.InfoText;
+            listRemover.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            listRemover.ForeColor = Color.FromArgb(225, 255, 0);
             listRemover.Location = new Point(398, 355);
             listRemover.Name = "listRemover";
             listRemover.Size = new Size(83, 31);
@@ -94,10 +95,10 @@
             // chkViagem
             // 
             chkViagem.AutoSize = true;
-            chkViagem.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            chkViagem.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             chkViagem.Location = new Point(817, 164);
             chkViagem.Name = "chkViagem";
-            chkViagem.Size = new Size(136, 19);
+            chkViagem.Size = new Size(134, 20);
             chkViagem.TabIndex = 4;
             chkViagem.Text = "Pedido Para Viagem";
             chkViagem.UseVisualStyleBackColor = true;
@@ -124,9 +125,9 @@
             // 
             // btnConcluir
             // 
-            btnConcluir.BackColor = Color.DarkGray;
-            btnConcluir.Font = new Font("Britannic Bold", 12F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            btnConcluir.ForeColor = Color.Lime;
+            btnConcluir.BackColor = Color.FromArgb(124, 122, 108);
+            btnConcluir.Font = new Font("Agrandir Narrow", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            btnConcluir.ForeColor = Color.FromArgb(225, 255, 0);
             btnConcluir.Location = new Point(827, 445);
             btnConcluir.Name = "btnConcluir";
             btnConcluir.Size = new Size(96, 65);
@@ -139,10 +140,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(12, 426);
             label1.Name = "label1";
-            label1.Size = new Size(125, 15);
+            label1.Size = new Size(122, 16);
             label1.TabIndex = 10;
             label1.Text = "Forma de Pagamento";
             label1.UseMnemonic = false;
@@ -150,10 +151,10 @@
             // labelNomeCliente
             // 
             labelNomeCliente.AutoSize = true;
-            labelNomeCliente.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelNomeCliente.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelNomeCliente.Location = new Point(827, 326);
             labelNomeCliente.Name = "labelNomeCliente";
-            labelNomeCliente.Size = new Size(111, 15);
+            labelNomeCliente.Size = new Size(111, 16);
             labelNomeCliente.TabIndex = 11;
             labelNomeCliente.Text = "NOME DO CLIENTE";
             labelNomeCliente.UseMnemonic = false;
@@ -161,18 +162,20 @@
             // lblValorRecebido
             // 
             lblValorRecebido.AutoSize = true;
+            lblValorRecebido.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblValorRecebido.Location = new Point(396, 431);
             lblValorRecebido.Name = "lblValorRecebido";
-            lblValorRecebido.Size = new Size(85, 15);
+            lblValorRecebido.Size = new Size(82, 16);
             lblValorRecebido.TabIndex = 12;
             lblValorRecebido.Text = "Valor Recebido";
             // 
             // lblTroco
             // 
             lblTroco.AutoSize = true;
+            lblTroco.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblTroco.Location = new Point(434, 495);
             lblTroco.Name = "lblTroco";
-            lblTroco.Size = new Size(37, 15);
+            lblTroco.Size = new Size(35, 16);
             lblTroco.TabIndex = 13;
             lblTroco.Text = "Troco";
             // 
@@ -194,19 +197,34 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(853, 12);
+            pictureBox1.Location = new Point(802, 23);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(100, 50);
+            pictureBox1.Size = new Size(136, 66);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 16;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click;
             // 
+            // btnBalcao
+            // 
+            btnBalcao.BackColor = Color.DarkGray;
+            btnBalcao.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBalcao.ForeColor = Color.FromArgb(230, 255, 0);
+            btnBalcao.Location = new Point(25, 11);
+            btnBalcao.Name = "btnBalcao";
+            btnBalcao.Size = new Size(90, 29);
+            btnBalcao.TabIndex = 17;
+            btnBalcao.Text = "BALCAO";
+            btnBalcao.UseVisualStyleBackColor = false;
+            btnBalcao.Click += btnBalcao_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(982, 535);
+            Controls.Add(btnBalcao);
             Controls.Add(pictureBox1);
             Controls.Add(txtTroco);
             Controls.Add(txtValorRecebido);
@@ -247,5 +265,6 @@
         private TextBox txtValorRecebido;
         private TextBox txtTroco;
         private PictureBox pictureBox1;
+        private Button btnBalcao;
     }
 }

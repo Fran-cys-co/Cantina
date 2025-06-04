@@ -1,3 +1,5 @@
+using System.Diagnostics.Eventing.Reader;
+
 namespace Projeto_Cantina
 {
     public partial class Form1 : Form
@@ -7,6 +9,8 @@ namespace Projeto_Cantina
             InitializeComponent();
         }
 
+        
+        Form2 form2 = new Form2();
         private void Form1_Load(object sender, EventArgs e)
         {
             listCardapio.Items.Add(new Produto("Pão de Queijo", 3.50m));
@@ -69,6 +73,7 @@ namespace Projeto_Cantina
 
         private void btnConcluir_Click(object sender, EventArgs e)
         {
+            
             if (listPedidos.Items.Count == 0)
             {
                 MessageBox.Show("Nenhum item foi adicionado ao pedido.");
@@ -109,6 +114,16 @@ namespace Projeto_Cantina
                     MessageBox.Show("Digite um valor recebido válido.", "Erro");
                     return;
                 }
+                string pedidoBalcao = $"Cliente: {nomeCliente} | Itens: ";
+                foreach (Produto p in listPedidos.Items)
+                {
+                    pedidoBalcao += $"{p.nome}, ";
+                }
+                pedidoBalcao += $"Pagamento: {formaPagamento}";
+
+                // Envia para o Form2 (Balcão)
+
+                form2.AdicionarPedido(pedidoBalcao);
             }
 
             string resumo = $"Cliente: {nomeCliente}\n\n" +
@@ -117,8 +132,15 @@ namespace Projeto_Cantina
                             $"Pagamento: {formaPagamento}\n\n" +
                             trocoTexto +
                             $"Total: R${total:F2}";
-
+            form2.AdicionarPedido(resumo);
             MessageBox.Show(resumo, "Resumo do Pedido");
+
+            listPedidos.Items.Clear();
+            txtNomeCliente.Clear();
+            comboPagamento.SelectedIndex = -1;
+            txtValorRecebido.Clear();
+            txtTroco.Clear();
+            chkViagem.Checked = false;
         }
 
         private void listRemover_Click(object sender, EventArgs e)
@@ -137,5 +159,16 @@ namespace Projeto_Cantina
         {
 
         }
+
+        private void btnBalcao_Click(object sender, EventArgs e)
+        {
+            if (form2 == null || form2.IsDisposed)
+            {
+                form2 = new Form2();
+            }
+            form2.Show();
+        }
+       
+
     }
 }
