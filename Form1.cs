@@ -114,14 +114,13 @@ namespace Projeto_Cantina
                     MessageBox.Show("Digite um valor recebido válido.", "Erro");
                     return;
                 }
-                string pedidoBalcao = $"Cliente: {nomeCliente} | Itens: ";
+                string pedidoBalcao = $"Cliente: {nomeCliente}\n Pedido: \n";
                 foreach (Produto p in listPedidos.Items)
                 {
-                    pedidoBalcao += $"{p.nome}, ";
+                    pedidoBalcao += $"- {p.nome}\n";
+
                 }
                 pedidoBalcao += $"Pagamento: {formaPagamento}";
-
-                // Envia para o Form2 (Balcão)
 
                 form2.AdicionarPedido(pedidoBalcao);
             }

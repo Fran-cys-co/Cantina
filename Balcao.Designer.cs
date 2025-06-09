@@ -36,7 +36,7 @@
             lblPedidosEntregues = new Label();
             pictureBox1 = new PictureBox();
             lblDetalhes = new Label();
-            listBox1 = new ListBox();
+            lstBox1 = new ListBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -48,15 +48,18 @@
             lstBoxPedidosFeitos.Name = "lstBoxPedidosFeitos";
             lstBoxPedidosFeitos.Size = new Size(250, 260);
             lstBoxPedidosFeitos.TabIndex = 0;
+            lstBoxPedidosFeitos.SelectedIndexChanged += lstBoxPedidosFeitos_SelectedIndexChanged;
             // 
             // lstBoxPedidosEntregues
             // 
+            lstBoxPedidosEntregues.DrawMode = DrawMode.OwnerDrawFixed;
             lstBoxPedidosEntregues.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lstBoxPedidosEntregues.FormattingEnabled = true;
             lstBoxPedidosEntregues.Location = new Point(777, 157);
             lstBoxPedidosEntregues.Name = "lstBoxPedidosEntregues";
             lstBoxPedidosEntregues.Size = new Size(281, 260);
             lstBoxPedidosEntregues.TabIndex = 1;
+            lstBoxPedidosEntregues.DrawItem += lstBoxPedidosEntregues_DrawItem;
             lstBoxPedidosEntregues.SelectedIndexChanged += lstBoxPedidosEntregues_SelectedIndexChanged;
             // 
             // btnEntregue
@@ -91,7 +94,6 @@
             lblPedidosEntregues.Size = new Size(187, 28);
             lblPedidosEntregues.TabIndex = 4;
             lblPedidosEntregues.Text = "Pedidos Entregues";
-            lblPedidosEntregues.Click += lblPedidosEntregues_Click;
             // 
             // pictureBox1
             // 
@@ -113,21 +115,21 @@
             lblDetalhes.TabIndex = 18;
             lblDetalhes.Text = "Detalhes do Pedido";
             // 
-            // listBox1
+            // lstBox1
             // 
-            listBox1.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(327, 157);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(281, 260);
-            listBox1.TabIndex = 19;
+            lstBox1.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lstBox1.FormattingEnabled = true;
+            lstBox1.Location = new Point(327, 157);
+            lstBox1.Name = "lstBox1";
+            lstBox1.Size = new Size(281, 260);
+            lstBox1.TabIndex = 19;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1172, 460);
-            Controls.Add(listBox1);
+            Controls.Add(lstBox1);
             Controls.Add(lblDetalhes);
             Controls.Add(pictureBox1);
             Controls.Add(lblPedidosEntregues);
@@ -137,7 +139,6 @@
             Controls.Add(lstBoxPedidosFeitos);
             Name = "Form2";
             Text = "Form2";
-            Load += Form2_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -152,6 +153,6 @@
         private Label lblPedidosEntregues;
         private PictureBox pictureBox1;
         private Label lblDetalhes;
-        private ListBox listBox1;
+        private ListBox lstBox1;
     }
 }
