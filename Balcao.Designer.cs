@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Cantina
 {
-    partial class Form2
+    partial class Balcao
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Balcao));
             lstBoxPedidosFeitos = new ListBox();
             lstBoxPedidosEntregues = new ListBox();
             btnEntregue = new Button();
@@ -124,7 +124,7 @@
             lstBox1.Size = new Size(281, 260);
             lstBox1.TabIndex = 19;
             // 
-            // Form2
+            // Balcao
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -137,8 +137,8 @@
             Controls.Add(btnEntregue);
             Controls.Add(lstBoxPedidosEntregues);
             Controls.Add(lstBoxPedidosFeitos);
-            Name = "Form2";
-            Text = "Form2";
+            Name = "Balcao";
+            Text = "Balcão";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();

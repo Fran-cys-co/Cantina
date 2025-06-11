@@ -11,39 +11,46 @@ using System.Windows.Forms;
 
 namespace Projeto_Cantina
 {
-    public partial class Form2 : Form
-
+    public partial class Balcao : Form
     {
-        public Form2()
+        public List<Pedido> pedidosFeitos = new List<Pedido>();
+        public List<Pedido> pedidosEntregues = new List<Pedido>();
+        public Balcao()
         {
             InitializeComponent();
             lstBoxPedidosEntregues.DrawItem += lstBoxPedidosEntregues_DrawItem;
-            lstBoxPedidosEntregues.DrawMode = DrawMode.OwnerDrawFixed; // necessário para customizar cores
+            lstBoxPedidosEntregues.DrawMode = DrawMode.OwnerDrawFixed; // customizar cores
         }
 
-        public void AdicionarPedido(string textoPedido)
+        public void AdicionarPedido(Pedido pedido)
         {
-            lstBoxPedidosFeitos.Items.Add(textoPedido);
+            pedidosFeitos.Add(pedido);
+            lstBoxPedidosFeitos.Items.Add($"Cliente: {pedido.NomeCliente}");
         }
 
-        private void lstBoxPedidosFeitos_SelectedIndexChanged(object sender, EventArgs e)
+        public void lstBoxPedidosFeitos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstBoxPedidosFeitos.SelectedItem != null)
+            int index = lstBoxPedidosFeitos.SelectedIndex;
+            if (index >= 0 && index < pedidosFeitos.Count)
             {
-                MostrarDetalhesPedido(lstBoxPedidosFeitos.SelectedItem.ToString());
+                MostrarDetalhesPedido(pedidosFeitos[index]);
             }
         }
 
+
         private void btnEntregue_Click(object sender, EventArgs e)
         {
-            if (lstBoxPedidosFeitos.SelectedItem != null)
+            int index = lstBoxPedidosFeitos.SelectedIndex;
+            if (index >= 0 && index < pedidosFeitos.Count)
             {
-                string pedido = lstBoxPedidosFeitos.SelectedItem.ToString();
+                Pedido pedidoEntregue = pedidosFeitos[index];
+                pedidosFeitos.RemoveAt(index);
+                lstBoxPedidosFeitos.Items.RemoveAt(index);
 
-                lstBoxPedidosEntregues.Items.Add(pedido);
-                lstBoxPedidosFeitos.Items.Remove(pedido);
+                pedidosEntregues.Add(pedidoEntregue);
+                lstBoxPedidosEntregues.Items.Add($"Cliente: {pedidoEntregue.NomeCliente}");
 
-                lstBox1.Items.Clear(); // limpa a visualização ao marcar como entregue
+                lstBox1.Items.Clear(); 
             }
             else
             {
@@ -51,38 +58,27 @@ namespace Projeto_Cantina
             }
         }
 
-        private void lstBoxPedidosEntregues_SelectedIndexChanged(object sender, EventArgs e)
+        public void lstBoxPedidosEntregues_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (lstBoxPedidosEntregues.SelectedItem != null)
+            int index = lstBoxPedidosEntregues.SelectedIndex;
+            if (index >= 0 && index < pedidosEntregues.Count)
             {
-                MostrarDetalhesPedido(lstBoxPedidosEntregues.SelectedItem.ToString());
+                MostrarDetalhesPedido(pedidosEntregues[index]);
             }
         }
 
-        private void MostrarDetalhesPedido(string pedidoBruto)
+        public void MostrarDetalhesPedido(Pedido pedido)
         {
             lstBox1.Items.Clear();
+            lstBox1.Items.Add($"Cliente: {pedido.NomeCliente}");
+            lstBox1.Items.Add($"Pedido:");
 
-            string[] partes = pedidoBruto.Split('|');
-
-            string cliente = partes.Length > 0 ? partes[0].Replace("Cliente:", "").Trim() : "";
-            string itens = partes.Length > 1 ? partes[1].Trim() : "";
-
-            lstBox1.Items.Add($"Pedido: {cliente}");
-
-            if (itens.Contains("Itens:"))
+            foreach (Produto produto in pedido.Produtos)
             {
-                string listaItens = itens.Replace("Itens:", "").Trim();
-                string[] itensSeparados = listaItens.Split(',');
-
-                foreach (string item in itensSeparados)
-                {
-                    if (!string.IsNullOrWhiteSpace(item))
-                    {
-                        lstBox1.Items.Add($"    {item.Trim()}");
-                    }
-                }
+                lstBox1.Items.Add($"    {produto.nome}");
             }
+
+            lstBox1.Items.Add($"Forma de Pagamento: {pedido.FormaDePagamento}");
         }
 
         private void lstBoxPedidosEntregues_DrawItem(object sender, DrawItemEventArgs e)
@@ -97,5 +93,7 @@ namespace Projeto_Cantina
             e.Graphics.DrawString(texto, e.Font, corTexto, e.Bounds);
             e.DrawFocusRectangle();
         }
+
+
     }
 }

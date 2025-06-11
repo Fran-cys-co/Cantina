@@ -45,6 +45,7 @@
             txtTroco = new TextBox();
             pictureBox1 = new PictureBox();
             btnBalcao = new Button();
+            labelCardapio = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -98,9 +99,9 @@
             chkViagem.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             chkViagem.Location = new Point(817, 164);
             chkViagem.Name = "chkViagem";
-            chkViagem.Size = new Size(134, 20);
+            chkViagem.Size = new Size(154, 20);
             chkViagem.TabIndex = 4;
-            chkViagem.Text = "Pedido Para Viagem";
+            chkViagem.Text = "Pedido Para Viagem 🏍️";
             chkViagem.UseVisualStyleBackColor = true;
             // 
             // comboPagamento
@@ -108,7 +109,7 @@
             comboPagamento.BackColor = SystemColors.Window;
             comboPagamento.FormattingEnabled = true;
             comboPagamento.Items.AddRange(new object[] { "Cartão Crédito", "Cartão Débito", "Dinheiro", "PIX" });
-            comboPagamento.Location = new Point(143, 423);
+            comboPagamento.Location = new Point(180, 428);
             comboPagamento.Name = "comboPagamento";
             comboPagamento.Size = new Size(121, 23);
             comboPagamento.TabIndex = 5;
@@ -143,9 +144,9 @@
             label1.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(12, 426);
             label1.Name = "label1";
-            label1.Size = new Size(122, 16);
+            label1.Size = new Size(162, 16);
             label1.TabIndex = 10;
-            label1.Text = "Forma de Pagamento";
+            label1.Text = "Forma de Pagamento  💰💵";
             label1.UseMnemonic = false;
             // 
             // labelNomeCliente
@@ -165,9 +166,9 @@
             lblValorRecebido.Font = new Font("Agrandir Narrow", 8.999999F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblValorRecebido.Location = new Point(396, 431);
             lblValorRecebido.Name = "lblValorRecebido";
-            lblValorRecebido.Size = new Size(82, 16);
+            lblValorRecebido.Size = new Size(123, 16);
             lblValorRecebido.TabIndex = 12;
-            lblValorRecebido.Text = "Valor Recebido";
+            lblValorRecebido.Text = "  Valor Recebido 💵💵";
             // 
             // lblTroco
             // 
@@ -181,14 +182,14 @@
             // 
             // txtValorRecebido
             // 
-            txtValorRecebido.Location = new Point(487, 431);
+            txtValorRecebido.Location = new Point(525, 431);
             txtValorRecebido.Name = "txtValorRecebido";
             txtValorRecebido.Size = new Size(108, 23);
             txtValorRecebido.TabIndex = 14;
             // 
             // txtTroco
             // 
-            txtTroco.Location = new Point(487, 487);
+            txtTroco.Location = new Point(525, 488);
             txtTroco.Name = "txtTroco";
             txtTroco.ReadOnly = true;
             txtTroco.Size = new Size(108, 23);
@@ -218,12 +219,23 @@
             btnBalcao.UseVisualStyleBackColor = false;
             btnBalcao.Click += btnBalcao_Click;
             // 
+            // labelCardapio
+            // 
+            labelCardapio.AutoSize = true;
+            labelCardapio.Font = new Font("Agrandir Narrow", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelCardapio.Location = new Point(10, 68);
+            labelCardapio.Name = "labelCardapio";
+            labelCardapio.Size = new Size(133, 20);
+            labelCardapio.TabIndex = 18;
+            labelCardapio.Text = "Cardápio 🍔🍟\U0001f9cb";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(243, 241, 238);
             ClientSize = new Size(982, 535);
+            Controls.Add(labelCardapio);
             Controls.Add(btnBalcao);
             Controls.Add(pictureBox1);
             Controls.Add(txtTroco);
@@ -266,5 +278,6 @@
         private TextBox txtTroco;
         private PictureBox pictureBox1;
         private Button btnBalcao;
+        private Label labelCardapio;
     }
 }

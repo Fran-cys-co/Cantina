@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Projeto_Cantina
 {
-    internal class Produto
+    public class Produto
     {
         public string nome { get; set; }
         public decimal preco { get; set; }

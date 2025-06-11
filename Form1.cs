@@ -10,7 +10,7 @@ namespace Projeto_Cantina
         }
 
         
-        Form2 form2 = new Form2();
+        Balcao form2 = new Balcao();
         private void Form1_Load(object sender, EventArgs e)
         {
             listCardapio.Items.Add(new Produto("Pão de Queijo", 3.50m));
@@ -80,60 +80,22 @@ namespace Projeto_Cantina
                 return;
             }
 
-            string nomeCliente = txtNomeCliente.Text;
-            string formaPagamento = comboPagamento.SelectedItem != null ? comboPagamento.SelectedItem.ToString() : "Não informado";
-            string pedidoParaViagem = chkViagem.Checked ? "Sim" : "Não";
-
-            string itens = "";
-            decimal total = 0;
-            foreach (Produto produto in listPedidos.Items)
+            Pedido novoPedido = new Pedido
             {
-                itens += produto.ToString() + "\n";
-                total += produto.preco;
+                NomeCliente = txtNomeCliente.Text,
+                FormaDePagamento = comboPagamento.SelectedItem?.ToString() ?? "Não informado",
+                PedidoViagem = chkViagem.Checked,
+                Produtos = new List<Produto>()
+            };
+
+            foreach (Produto p in listPedidos.Items)
+            {
+                novoPedido.Produtos.Add(p);
             }
 
-            string trocoTexto = "";
-            if (formaPagamento == "Dinheiro")
-            {
-                if (decimal.TryParse(txtValorRecebido.Text, out decimal recebido))
-                {
-                    if (recebido >= total)
-                    {
-                        decimal troco = recebido - total;
-                        txtTroco.Text = troco.ToString("F2");
-                        trocoTexto = $"Valor Recebido: R${recebido:F2}\nTroco: R${troco:F2}\n\n";
-                    }
-                    else
-                    {
-                        MessageBox.Show("O valor recebido é menor que o total do pedido.", "Erro");
-                        return;
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Digite um valor recebido válido.", "Erro");
-                    return;
-                }
-                string pedidoBalcao = $"Cliente: {nomeCliente}\n Pedido: \n";
-                foreach (Produto p in listPedidos.Items)
-                {
-                    pedidoBalcao += $"- {p.nome}\n";
+            form2.AdicionarPedido(novoPedido);
 
-                }
-                pedidoBalcao += $"Pagamento: {formaPagamento}";
-
-                form2.AdicionarPedido(pedidoBalcao);
-            }
-
-            string resumo = $"Cliente: {nomeCliente}\n\n" +
-                            $"Itens do Pedido:\n{itens}\n" +
-                            $"Para viagem: {pedidoParaViagem}\n" +
-                            $"Pagamento: {formaPagamento}\n\n" +
-                            trocoTexto +
-                            $"Total: R${total:F2}";
-            form2.AdicionarPedido(resumo);
-            MessageBox.Show(resumo, "Resumo do Pedido");
-
+            // Zera os campos
             listPedidos.Items.Clear();
             txtNomeCliente.Clear();
             comboPagamento.SelectedIndex = -1;
@@ -142,6 +104,7 @@ namespace Projeto_Cantina
             chkViagem.Checked = false;
         }
 
+        
         private void listRemover_Click(object sender, EventArgs e)
         {
             if (listPedidos.SelectedItem != null)
@@ -163,7 +126,7 @@ namespace Projeto_Cantina
         {
             if (form2 == null || form2.IsDisposed)
             {
-                form2 = new Form2();
+                form2 = new Balcao();
             }
             form2.Show();
         }

@@ -21,7 +21,6 @@ C:\Users\25163064\OneDrive\FRANCISCO\Cantina\bin\Debug\net8.0-windows\Projeto_Ca
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\bin\Debug\net8.0-windows\Projeto_Cantina.runtimeconfig.json
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\bin\Debug\net8.0-windows\Projeto_Cantina.dll
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\bin\Debug\net8.0-windows\Projeto_Cantina.pdb
-C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.Form2.resources
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.Form1.resources
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.Properties.Resources.resources
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.csproj.GenerateResource.cache
@@ -35,3 +34,4 @@ C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\refint\Pro
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.pdb
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.genruntimeconfig.cache
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\ref\Projeto_Cantina.dll
+C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.Balcao.resources
