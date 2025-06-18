@@ -35,3 +35,4 @@ C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Ca
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.genruntimeconfig.cache
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\ref\Projeto_Cantina.dll
 C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.Balcao.resources
+C:\Users\25163064\OneDrive\FRANCISCO\Cantina\obj\Debug\net8.0-windows\Projeto_Cantina.Cozinha.resources

@@ -22,21 +22,25 @@ namespace Projeto_Cantina
             lstBoxPedidosEntregues.DrawMode = DrawMode.OwnerDrawFixed; // customizar cores
         }
 
-        public void AdicionarPedido(Pedido pedido)
+        public void AdicionarPedido()
         {
-            pedidosFeitos.Add(pedido);
-            lstBoxPedidosFeitos.Items.Add($"Cliente: {pedido.NomeCliente}");
+            foreach(Pedido pedido in ClasseListaPedidos.Pedidos) 
+            {
+                pedidosFeitos.Add(pedido);
+                lstBoxPedidosFeitos.Items.Add($"Cliente: {pedido.NomeCliente}");
+            }
         }
 
         public void lstBoxPedidosFeitos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = lstBoxPedidosFeitos.SelectedIndex;
-            if (index >= 0 && index < pedidosFeitos.Count)
-            {
-                MostrarDetalhesPedido(pedidosFeitos[index]);
-            }
-        }
+            //int index = lstBoxPedidosFeitos.SelectedIndex;
+            //if (index >= 0 && index < pedidosFeitos.Count)
+            //{
+            //    MostrarDetalhesPedido(pedidosFeitos[index]);
+            //}
 
+        }
+ 
 
         private void btnEntregue_Click(object sender, EventArgs e)
         {
@@ -50,7 +54,7 @@ namespace Projeto_Cantina
                 pedidosEntregues.Add(pedidoEntregue);
                 lstBoxPedidosEntregues.Items.Add($"Cliente: {pedidoEntregue.NomeCliente}");
 
-                lstBox1.Items.Clear(); 
+                lstBox1.Items.Clear();
             }
             else
             {
@@ -94,6 +98,9 @@ namespace Projeto_Cantina
             e.DrawFocusRectangle();
         }
 
-
+        private void Balcao_Load(object sender, EventArgs e)
+        {
+            AdicionarPedido();
+        }
     }
 }

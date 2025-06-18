@@ -11,10 +11,13 @@ namespace Projeto_Cantina
         public string nome { get; set; }
         public decimal preco { get; set; }
 
-        public Produto(string nome, decimal preco)
+        public bool chapa { get; set; }
+
+        public Produto(string nome, decimal preco, bool chapa)
         { 
             this.nome = nome;
             this.preco = preco;
+            this.chapa = chapa;
         }
 
         public override string ToString()
